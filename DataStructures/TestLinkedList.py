@@ -27,5 +27,11 @@ class TestLinkedList(unittest.TestCase):
 
         self.assertTrue(self.link.isEmpty(), 'All items not removed')
 
+        self.link.add('Test')
+        self.assertTrue(self.link.contains('Test'))
+        self.assertTrue(self.link.remove('Test'))
+        self.assertFalse(self.link.contains('Test'))
+        self.assertTrue(self.link.isEmpty())
+
 if __name__ == '__main__':
         unittest.main()

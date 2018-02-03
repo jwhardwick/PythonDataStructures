@@ -39,18 +39,23 @@ class LinkedList:
         if self.isEmpty():
             return
 
-        head = self.front
-        while head != None:
-            if head.data == data:
-                  if self.front == head:
-                      self.front = head.next
-                      if self.front:
-                          self.front.prev = None
-                  else:
-                      prevItem = head.prev
-                      prevItem.next = head.next
-                      prevItem.next.prev = prevItem
-                  return
+        prev = None
+        curr = self.front
+
+        while curr:
+            if curr.data == data:
+                if prev:
+                    prev.next = curr.next
+                else:
+                    self.front = curr.next
+                self._size -= 1
+                return True
+
+            prev = curr
+            curr = curr.next
+
+        return False
+
 
     def __getitem(self, key):
         return
