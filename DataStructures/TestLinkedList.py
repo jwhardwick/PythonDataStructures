@@ -36,7 +36,7 @@ class TestLinkedList(unittest.TestCase):
     def testGetitem(self):
         self.testAdd()
         for i in range(10):
-            self.assertEquals(self.link[i], i)
+            self.assertEqual(self.link[i], i)
 
 if __name__ == '__main__':
         unittest.main()

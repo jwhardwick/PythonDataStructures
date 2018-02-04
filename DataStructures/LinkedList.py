@@ -57,8 +57,20 @@ class LinkedList:
         return False
 
 
-    def __getitem(self, key):
-        return
+    def __getitem__(self, index):
+        if index > self._size - 1:
+            raise IndexError
+
+        curr = self.front
+        pos = 0
+        while curr:
+            if pos == index:
+                return curr.data
+            else:
+                curr = curr.next
+                pos += 1
+
+        raise IndexError
 
 
     class ListItem:
