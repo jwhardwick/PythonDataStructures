@@ -72,6 +72,8 @@ class LinkedList:
 
         raise IndexError
 
+    def __len__(self):
+        return self._size
 
     class ListItem:
         def __init__(self, data):

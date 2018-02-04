@@ -38,5 +38,9 @@ class TestLinkedList(unittest.TestCase):
         for i in range(10):
             self.assertEqual(self.link[i], i)
 
+    def testLen(self):
+        self.testAdd()
+        self.assertEqual(len(self.link), 10)
+
 if __name__ == '__main__':
         unittest.main()
