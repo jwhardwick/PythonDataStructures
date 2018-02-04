@@ -33,5 +33,10 @@ class TestLinkedList(unittest.TestCase):
         self.assertFalse(self.link.contains('Test'))
         self.assertTrue(self.link.isEmpty())
 
+    def testGetitem(self):
+        self.testAdd()
+        for i in range(10):
+            self.assertEquals(self.link[i], i)
+
 if __name__ == '__main__':
         unittest.main()

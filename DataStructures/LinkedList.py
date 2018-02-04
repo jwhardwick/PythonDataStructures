@@ -59,6 +59,8 @@ class LinkedList:
 
     def __getitem(self, key):
         return
+
+
     class ListItem:
         def __init__(self, data):
             self.next = None
