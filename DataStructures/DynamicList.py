@@ -4,7 +4,7 @@ class DynamicList:
 
     def __init__(self):
         self.buckets = [ Bucket(0) ]
-
+        self.size = 0
 
     def add(self, data):
 
@@ -14,13 +14,16 @@ class DynamicList:
 
         # Add to end of bucket
         self.buckets[-1].add(data)
-        return True
+        self.size += 1
 
-    def get(self, index):
+    def __getitem__(self, index):
 
         # Check upper bound
-        if index > 2 ^ (self.buckets[-1].level + 1) - 1:
-            return None
+        if index >= self.size:
+            raise IndexError
+
+        if index == -1:
+            index = self.size - 1
 
         for bucket in reversed(self.buckets):
             start = bucket.capacity - 1
@@ -29,6 +32,9 @@ class DynamicList:
                 return bucket.datas[index - start]
 
         return None
+
+    def __len__(self):
+        return self.size
 
 
 class Bucket:
